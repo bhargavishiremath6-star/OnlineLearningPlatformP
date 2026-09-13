@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Learning Platform</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Online Learning Platform</h1>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="#courses">Courses</a>
+            <a href="mycourses.html">My Courses</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>Learn. Grow. Succeed.</h2>
+        <p>Explore courses and improve your skills.</p>
+        <button onclick="showMessage()">Start Learning</button>
+    </section>
+
+    <section class="courses" id="courses">
+
+    <h2>Featured Courses</h2>
+
+    <input
+        type="text"
+        id="search"
+        placeholder="Search courses..."
+        onkeyup="searchCourses()"
+    >
+
+    <div class="course-container" id="courseContainer">
+    </div>
+
+</section>
+
+       
+    <footer>
+        <p>© 2026 Online Learning Platform</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Programming</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>Online Learning Platform</h1>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="course.html">Courses</a>
+        <a href="mycourses.html">My Courses</a>
+    </nav>
+</header>
+
+<section class="course-details">
+
+    <h2>Python Programming</h2>
+
+    <p>Learn Python programming from the basics.</p>
+
+    <h3>Course Information</h3>
+
+    <p><b>Duration:</b> 6 Weeks</p>
+    <p><b>Level:</b> Beginner</p>
+
+    <h3>Lessons</h3>
+
+    <ul>
+        <li>Introduction to Python</li>
+        <li>Variables and Data Types</li>
+        <li>Conditional Statements</li>
+        <li>Loops</li>
+        <li>Functions</li>
+        <li>Lists and Dictionaries</li>
+    </ul>
+
+    <button onclick="enrollBackendCourse('Python Programming')">Enroll Now</button>
+    <script>
+    function enrollPythonCourse() {
+        let courses =
+        JSON.parse(localStorage.getItem("enrolledCourses")) || [];
+        
+        if (!courses.includes("Python Programming")) {
+            courses.push("Python Programming");
+        }
+
+        localStorage.setItem(
+          "enrolledCourses",
+        JSON.stringify(courses)
+        );
+        
+        alert("You have successfully enrolled in Python Programming!");
+    }
+    </script>
+
+</section>
+
+<footer>
+    <p>© 2026 Online Learning Platform</p>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>

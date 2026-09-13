@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Courses</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Online Learning Platform</h1>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="course.html">Courses</a>
+            <a href="mycourses.html">My Courses</a>
+        </nav>
+    </header>
+
+    <section class="courses">
+        <h2>My Courses</h2>
+
+        <div id="my-course-container"></div>
+
+<script>
+window.onload = function() {
+
+    let courses =
+        JSON.parse(localStorage.getItem("enrolledCourses")) || [];
+
+    let container = document.getElementById("my-course-container");
+
+    if (courses.length === 0) {
+        container.innerHTML = "<p>You have not enrolled in any course yet.</p>";
+        return;
+    }
+
+    courses.forEach(function(course) {
+
+        let progress = 0;
+        let button = "";
+
+       if (course === "Java Programming") {
+    progress = getProgress();
+
+    button = `
+        <button onclick="window.location.href='lessons.html'">
+            Continue Learning
+        </button>
+    `;
+}
+
+if (course === "Python Programming") {
+    let pythonLessons =
+        JSON.parse(localStorage.getItem("pythonLessons")) || [];
+
+    progress = ((pythonLessons.length / 6) * 100).toFixed(0);
+
+    button = `
+        <button onclick="window.location.href='python-lessons.html'">
+            Continue Learning
+        </button>
+    `;
+}
+
+if (course === "HTML & CSS") {
+
+    let htmlcssLessons =
+        JSON.parse(localStorage.getItem("htmlcssLessons")) || [];
+
+    progress = ((htmlcssLessons.length / 6) * 100).toFixed(0);
+
+    button = `
+        <button onclick="window.location.href='htmlcss-lessons.html'">
+            Continue Learning
+        </button>
+    `;
+}
+if (course === "C Programming") {
+
+    let cLessons =
+        JSON.parse(localStorage.getItem("cLessons")) || [];
+
+    progress = ((cLessons.length / 6) * 100).toFixed(0);
+
+    button = `
+        <button onclick="window.location.href='c-lessons.html'">
+            Continue Learning
+        </button>
+    `;
+}
+if (course === "Web Development") {
+
+    let webLessons =
+        JSON.parse(localStorage.getItem("webLessons")) || [];
+
+    progress = ((webLessons.length / 6) * 100).toFixed(0);
+
+    button = `
+        <button onclick="window.location.href='web-lessons.html'">
+            Continue Learning
+        </button>
+    `;
+}
+
+        container.innerHTML += `
+            <div class="course-card">
+                <h3>${course}</h3>
+                <p>You are enrolled in this course.</p>
+                <p><b>Progress:</b> ${progress}%</p>
+                <div class="progress-bar">
+                     <div class="progress-fill" style="width: ${progress}%"></div>
+                </div>
+                ${progress == 100 ? `
+                 <p><b>Course Completed!</b></p>
+                   <button onclick="openCertificate('${course}')">
+                    View Certificate
+                   </button>
+                ` : ""}
+                ${button}
+            </div>
+        `;
+    });
+};
+</script>
+    </section>
+
+    <footer>
+        <p>© 2026 Online Learning Platform</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+function openCertificate(course) {
+    localStorage.setItem("certificateCourse", course);
+    window.location.href = "certificate.html";
+}
+</script>
+
+</body>
+</html>

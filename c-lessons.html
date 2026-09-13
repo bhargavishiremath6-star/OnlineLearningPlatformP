@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Programming Lessons</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>Online Learning Platform</h1>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="index.html#courses">Courses</a>
+        <a href="mycourses.html">My Courses</a>
+    </nav>
+</header>
+
+<section class="course-details">
+
+    <h2>C Programming</h2>
+
+    <p>Complete the lessons below to track your course progress.</p>
+
+    <h3 id="progress">Progress: 0%</h3>
+
+    <hr>
+
+    <h3>Lesson 1: Introduction to C</h3>
+    <p>Learn the basics of C programming.</p>
+    <button onclick="completeCourseLesson('C Programming', 'cLessons', 1)">
+     Complete Lesson
+    </button>
+
+    <h3>Lesson 2: Variables and Data Types</h3>
+    <p>Learn variables and basic data types in C.</p>
+    <button onclick="completeCourseLesson('C Programming', 'cLessons', 2)">
+      Complete Lesson
+    </button>
+
+    <h3>Lesson 3: Operators</h3>
+    <p>Learn different operators used in C.</p>
+    <button onclick="completeCourseLesson('C Programming', 'cLessons', 3)">
+        Complete Lesson
+    </button>
+
+    <h3>Lesson 4: Conditional Statements</h3>
+    <p>Learn if, else and switch statements.</p>
+    <button onclick="completeCourseLesson('C Programming', 'cLessons', 4)">
+        Complete Lesson
+    </button>
+
+    <h3>Lesson 5: Loops</h3>
+    <p>Learn for, while and do-while loops.</p>
+    <button onclick="completeCourseLesson('C Programming', 'cLessons', 5)">
+        Complete Lesson
+    </button>
+
+    <h3>Lesson 6: Functions</h3>
+    <p>Learn how to create and use functions in C.</p>
+    <button onclick="completeCourseLesson('C Programming', 'cLessons', 6)">
+        Complete Lesson
+    </button>
+
+</section>
+
+<script>
+
+function completeCourseLesson(courseName, lessonKey, lessonNumber) {
+
+    let completedLessons =
+        JSON.parse(localStorage.getItem(lessonKey)) || [];
+
+    if (!completedLessons.includes(lessonNumber)) {
+        completedLessons.push(lessonNumber);
+
+        localStorage.setItem(
+            lessonKey,
+            JSON.stringify(completedLessons)
+        );
+    }
+
+    let progress =
+        (completedLessons.length / 6) * 100;
+
+    document.getElementById("progress").innerText =
+        "Progress: " + progress.toFixed(0) + "%";
+
+    alert("Lesson completed!");
+}
+
+window.onload = function() {
+
+    let completedLessons =
+        JSON.parse(localStorage.getItem("cLessons")) || [];
+
+    let progress =
+        (completedLessons.length / 6) * 100;
+
+    document.getElementById("progress").innerText =
+        "Progress: " + progress.toFixed(0) + "%";
+};
+
+</script>
+<script src="script.js"></script>
+
+</body>
+</html>

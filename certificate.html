@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate of Completion</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .certificate {
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 50px;
+            background-color: white;
+            text-align: center;
+            border: 5px solid #1e3a8a;
+            border-radius: 10px;
+        }
+
+        .certificate h1 {
+            font-size: 40px;
+            margin-bottom: 25px;
+        }
+
+        .certificate h2 {
+            font-size: 30px;
+            margin: 20px 0;
+        }
+
+        .certificate p {
+            font-size: 18px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Online Learning Platform</h1>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="mycourses.html">My Courses</a>
+    </nav>
+</header>
+
+<section class="certificate">
+
+    <h1>Certificate of Completion</h1>
+
+    <p>This certificate is proudly presented for successfully completing</p>
+
+    <h2 id="courseName">Course Name</h2>
+
+    <p>Congratulations on completing all the lessons!</p>
+
+    <p><b>Online Learning Platform</b></p>
+
+    <br>
+
+    <button onclick="window.print()">Print Certificate</button>
+
+</section>
+<script>
+let course =
+    localStorage.getItem("certificateCourse") || "Java Programming";
+
+document.getElementById("courseName").innerText = course;
+</script>
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Lessons</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Online Learning Platform</h1>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="course.html">Courses</a>
+            <a href="mycourses.html">My Courses</a>
+        </nav>
+    </header>
+
+    <section class="course-details">
+
+        <h2>Java Programming - Lessons</h2>
+
+        <p>Complete the lessons one by one.</p>
+
+        <div class="lesson">
+            <h3>Lesson 1: Introduction to Java</h3>
+            <button onclick="completeLesson(1)">Complete Lesson</button>
+        </div>
+
+        <div class="lesson">
+            <h3>Lesson 2: Variables and Data Types</h3>
+            <button onclick="completeLesson(2)">Complete Lesson</button>
+        </div>
+
+        <div class="lesson">
+            <h3>Lesson 3: Conditional Statements</h3>
+            <button onclick="completeLesson(3)">Complete Lesson</button>
+        </div>
+
+        <div class="lesson">
+            <h3>Lesson 4: Loops</h3>
+            <button onclick="completeLesson(4)">Complete Lesson</button>
+        </div>
+
+        <div class="lesson">
+            <h3>Lesson 5: Arrays</h3>
+            <button onclick="completeLesson(5)">Complete Lesson</button>
+        </div>
+
+        <div class="lesson">
+            <h3>Lesson 6: Object-Oriented Programming</h3>
+            <button onclick="completeLesson(6)">Complete Lesson</button>
+        </div>
+
+        <h3 id="progress">Progress: 0%</h3>
+        <script>
+            let completedLessons =
+        JSON.parse(localStorage.getItem("completedLessons")) || [];
+        let progress = (completedLessons.length / 6) * 100;
+        document.getElementById("progress").innerText ="Progress: " + progress + "%";
+        </script>
+
+    </section>
+
+    <footer>
+        <p>© 2026 Online Learning Platform</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

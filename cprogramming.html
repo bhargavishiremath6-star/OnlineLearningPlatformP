@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Programming</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>Online Learning Platform</h1>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="index.html#courses">Courses</a>
+        <a href="mycourses.html">My Courses</a>
+    </nav>
+</header>
+
+<section class="course-details">
+
+    <h2>C Programming</h2>
+
+    <p>
+        Learn programming fundamentals and develop problem-solving
+        skills using the C programming language.
+    </p>
+
+    <h3>Course Information</h3>
+
+    <p><b>Duration:</b> 5 Weeks</p>
+    <p><b>Level:</b> Beginner</p>
+
+    <h3>Lessons</h3>
+
+    <ul>
+        <li>Introduction to C Programming</li>
+        <li>Variables and Data Types</li>
+        <li>Conditional Statements</li>
+        <li>Loops</li>
+        <li>Arrays</li>
+        <li>Functions</li>
+    </ul>
+
+    <button onclick="enrollBackendCourse('C Programming')">Enroll Now</button>
+
+<script>
+function enrollCProgramming() {
+    let courses =
+        JSON.parse(localStorage.getItem("enrolledCourses")) || [];
+
+    if (!courses.includes("C Programming")) {
+        courses.push("C Programming");
+    }
+
+    localStorage.setItem(
+        "enrolledCourses",
+        JSON.stringify(courses)
+    );
+
+    alert("You have successfully enrolled in C Programming!");
+}
+</script>
+
+</section>
+
+<footer>
+    <p>© 2026 Online Learning Platform</p>
+</footer>
+<script src="script.js"></script>
+
+</body>
+</html>
