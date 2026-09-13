@@ -85,4 +85,5 @@ OnlineLearningPlatform
 ![Lessons](screenshots/lessons.png)
 
 ### Certificate
-![Certificate](screenshots/certificate.png) 
+![Certificate](screenshots/certificate.png)
+
